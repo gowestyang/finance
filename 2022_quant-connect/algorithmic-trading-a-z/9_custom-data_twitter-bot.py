@@ -2,58 +2,70 @@
 from AlgorithmImports import *
 # endregion
 
+from nltk.sentiment import SentimentIntensityAnalyzer
+
 class EnergeticGreenGaur(QCAlgorithm):
 
     def Initialize(self):
-        self.SetStartDate(2019, 1, 1)
-        self.SetEndDate(2021, 1, 1)
+        self.SetStartDate(2012, 1, 1)
+        self.SetEndDate(2017, 1, 1)
         self.SetCash(100000)
-        
-        self.rebalanceTime = datetime.min
-        self.activeStocks = set()
 
-        self.AddUniverse(self.CoarseFilter, self.FineFilter)
-        self.UniverseSettings.Resolution = Resolution.Hour
+        self.tsla = self.AddEquity("TSLA", Resolution.Minute).Symbol
+        self.musk = self.AddData(MuskTweet, "MUSKTWTS", Resolution.Minute).Symbol
 
-        self.portfolioTargets = []
+        self.Schedule.On(
+            self.DateRules.EveryDay(self.tsla),
+            self.TimeRules.BeforeMarketClose(self.tsla, 15),
+            self.ExitPositions
+        )
 
-    def CoarseFilter(self, coarse):
-        if self.Time <= self.rebalanceTime:
-            return self.Universe.Unchanged
-        
-        self.rebalanceTime = self.Time + timedelta(30)
-        sortedByDollarVolume = sorted(coarse, key=lambda x:x.DollarVolume, reverse=True)
-        return [x.Symbol for x in sortedByDollarVolume if x.Price > 10 and x.HasFundamentalData][:200]
-
-    def FineFilter(self, fine):
-        sortedByPE = sorted(fine, key=lambda x: x.MarketCap)
-        return [x.Symbol for x in sortedByPE if x.MarketCap > 0][:10]
-
-    def OnSecuritiesChanged(self, changes):
-        for x in changes.RemovedSecurities:
-            self.Liquidate(x.Symbol)
-            self.activeStocks.remove(x.Symbol)
-        
-        for x in changes.AddedSecurities:
-            self.activeStocks.add(x.Symbol)
-            # 1. you cannot trade here because the data of the added securities are not available yet
-            # it takes one iteration to get in the data
-            # 2. the self.ActiveSecurities array also does not remove the removed securities immediately
-            # after liquidate, the removed securities are placed into a "pending removal list" and stay at least one iteration
-            # that's why we need to create our own activeStocks set.
-        
-        self.portfolioTargets = [
-            PortfolioTarget(symbol, 1/len(self.activeStocks)) for symbol in self.activeStocks
-        ]
-    
     def OnData(self, data):
-        if self.portfolioTargets == []:
-            return
-        
-        for symbol in self.activeStocks:
-            if symbol not in data:
-                # this check ensures that the data has been added
-                return
+        if self.musk in data:
+            score = data[self.musk].Value
+            content = data[self.musk].Tweet
 
-        self.SetHoldings(self.portfolioTargets)
-        self.portfolioTargets = []
+            if score > 0.5:
+                self.SetHoldings(self.tsla, 1)
+            elif score < -0.5:
+                self.SetHoldings(self.tsla, -1)
+            
+            if abs(score) > 0.5:
+                self.Log("score: " + str(score) + ", Tweet: " + content)
+    
+    def ExitPositions(self):
+        self.Liquidate()
+
+
+class MuskTweet(PythonData):
+
+    sia = SentimentIntensityAnalyzer()
+
+    def GetSource(self, config, date, isLive):
+        # the "dl=1" is must-have
+        source = "https://www.dropbox.com/s/ovnsrgg1fou1y0r/MuskTweetsPreProcessed.csv?dl=1"
+        return SubscriptionDataSource(source, SubscriptionTransportMedium.RemoteFile)
+
+    def Reader(self, config, line, date, isLive):
+        if not (line.strip() and line[0].isdigit()):
+            return None
+        
+        data = line.split(",")
+        tweet = MuskTweet()
+
+        try:
+            tweet.Symbol = config.Symbol
+            tweet.Time = datetime.strptime(data[0], "%Y-%m-%d %H:%M:%S") + timedelta(minutes=1)
+            content = data[1].lower()
+
+            if "tsla" in content or "tesla" in content:
+                tweet.Value = self.sia.polarity_scores(content)["compound"]
+            else:
+                tweet.Value = 0
+            
+            tweet["Tweet"] = str(content)
+
+        except ValueError:
+            return None
+
+        return tweet
