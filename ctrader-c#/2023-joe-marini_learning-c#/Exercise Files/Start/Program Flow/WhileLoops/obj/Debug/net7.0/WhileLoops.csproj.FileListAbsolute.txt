@@ -1,0 +1,15 @@
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\bin\Debug\net7.0\WhileLoops.exe
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\bin\Debug\net7.0\WhileLoops.deps.json
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\bin\Debug\net7.0\WhileLoops.runtimeconfig.json
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\bin\Debug\net7.0\WhileLoops.dll
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\bin\Debug\net7.0\WhileLoops.pdb
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.csproj.AssemblyReference.cache
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.AssemblyInfoInputs.cache
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.AssemblyInfo.cs
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.csproj.CoreCompileInputs.cache
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.dll
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\refint\WhileLoops.dll
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.pdb
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\WhileLoops.genruntimeconfig.cache
+C:\Users\gowes\Desktop\work\git\finance\ctrader-c#\2023-joe-marini_learning-c#\Exercise Files\Start\Program Flow\WhileLoops\obj\Debug\net7.0\ref\WhileLoops.dll
