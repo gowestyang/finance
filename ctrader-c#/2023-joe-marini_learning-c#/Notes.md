@@ -1,5 +1,6 @@
 # Variables and Data Types
 * `var`: let program to determine the data type
+* m for decimal number, i.e., `1.23m`, `0m`
 
 # Operators
 * null-coalescing: `a ?? b`: if a is null, return b, else a
@@ -29,5 +30,5 @@
 * `string string.Replace(old, new)`
 
 # String Formatting
-
+* {index[,alignment]:[format]}
 
