@@ -1,0 +1,14 @@
+ipykernel
+
+numpy
+pandas
+scikit-learn
+
+backtrader-lucidinvestor
+backtrader-bokeh
+
+nbformat
+plotly
+backtrader-plotly
+
+MetaTrader5
