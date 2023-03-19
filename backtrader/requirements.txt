@@ -4,11 +4,10 @@ numpy
 pandas
 scikit-learn
 
-backtrader-lucidinvestor
+#backtrader-lucidinvestor
+backtrader
 backtrader-bokeh
 
 nbformat
 plotly
 backtrader-plotly
-
-MetaTrader5
