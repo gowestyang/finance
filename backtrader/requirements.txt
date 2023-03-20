@@ -11,3 +11,5 @@ backtrader-bokeh
 nbformat
 plotly
 backtrader-plotly
+
+oandapyV20
