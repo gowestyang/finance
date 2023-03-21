@@ -2,7 +2,12 @@ import backtrader as bt
 import btoandav20 as bto
 import json
 
-''' Test for orders from oanda '''
+''' 
+Test for orders from oanda - limit / market / stop orders, and test bracket orders.
+
+self.p is the shortcut to self.params
+
+'''
 
 
 class St(bt.Strategy):

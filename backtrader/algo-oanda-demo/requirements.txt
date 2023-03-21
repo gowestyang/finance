@@ -1,0 +1,10 @@
+ipykernel
+
+numpy
+pandas
+
+backtrader
+oandapyV20
+
+aiogram
+requests
