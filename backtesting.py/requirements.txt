@@ -1,9 +1,0 @@
-ipykernel
-numpy
-pandas
-
-Backtesting
-
-schedule
-scikit-learn
-MetaTrader5
