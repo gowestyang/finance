@@ -1,14 +1,14 @@
 ## Docker
 ### build docker image
-* docker build --tag telegram-echo-bot .
+* docker build --tag telegram-timer-bot .
 
 ### manage docker images
 * docker images
 * docker tag telegram-echo-bot:latest telegram-echo-bot:v1.0.0
-* docker rmi echo-bot-docker:v1.0.0
+* docker rmi telegram-echo-bot:v1.0.0
 
 ### run/stop docker images
-* docker run -d --name echo-bot-1 echo-bot-docker
+* docker run -d --name echo-bot-1 telegram-echo-bot
     * `-d` is detached for running in background
     * `--name` is to give the container a name
 * docker ps -a

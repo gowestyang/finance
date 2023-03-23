@@ -9,6 +9,7 @@ def send_telegram_message(text, chat_id='2069686152'):
         'chat_id': chat_id,
         'text': text
     }
-    requests.post(TELEGRAM_API_URL + 'sendMessage', data=payload)
+    return requests.post(TELEGRAM_API_URL + 'sendMessage', data=payload)
 
-send_telegram_message('from python')
+response = send_telegram_message('from python')
+print(type(response))

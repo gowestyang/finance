@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, executor, types
 
 logging.basicConfig(level=logging.INFO)
 
-API_TOKEN = '6252951396:AAHAYGHvDR_r1TKmC1x9Exxs93ygYJf8sPU'
+API_TOKEN = '5980497883:AAGo2LkbaFrjIDHKWnB91jjJW1jYEji3f4I'
 CHAT_ID = '2069686152'
 
 # Initialize bot and dispatcher

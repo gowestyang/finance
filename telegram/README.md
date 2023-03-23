@@ -11,3 +11,7 @@ pip install ipykernel aiogram requests
 conda deactivate
 
 conda env remove -n telegram-py38
+
+## Telegram
+
+Get update from bot: https://api.telegram.org/bot{API_TOKEN}/getUpdates
